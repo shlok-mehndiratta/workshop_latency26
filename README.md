@@ -189,6 +189,9 @@ Each folder contains the code for that task.
 
 ## 5. Task 1: LCD Display Setup
 
+####  Schematic Of the Task
+![Schematic](assests/Task1.jpeg)
+
 ### Objective
 
 Connect and test the LCD with ESP32.
@@ -233,6 +236,8 @@ Connect and test the LCD with ESP32.
 
 Display temperature and humidity on LCD.
 
+####  Schematic Of the Task
+![Schematic](assests/Task2.jpeg)
 ### Components
 
 * DHT11
@@ -269,6 +274,8 @@ Display temperature and humidity on LCD.
 
 Detect nearby objects and trigger alert.
 
+####  Schematic Of the Task
+![Schematic](assests/Task3.jpeg)
 ### Components
 
 * IR Sensor
@@ -300,6 +307,8 @@ Detect nearby objects and trigger alert.
 
 Measure soil moisture percentage.
 
+####  Schematic Of the Task
+![Schematic](assests/Task4.jpeg)
 ### Components
 
 * Soil Sensor
