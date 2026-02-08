@@ -21,6 +21,10 @@ void setup() {
   lcd.init();                        // Initialize LCD
   lcd.backlight();                   // Turn ON LCD backlight
 
+  // -------- Serial Monitor --------
+  Serial.begin(9600);
+  Serial.println("LCD TEST | I2C Addr: 0x27 | Size: 16x2 | Status: OK");
+
   lcd.setCursor(0, 0);               // First row, first column
   lcd.print("LCD TEST");
 

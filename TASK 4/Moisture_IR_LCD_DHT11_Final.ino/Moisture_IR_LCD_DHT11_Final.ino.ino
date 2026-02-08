@@ -38,8 +38,14 @@ void setup() {
   pinMode(BUZZER, OUTPUT);
   digitalWrite(BUZZER, LOW);
 
+  // -------- Serial Monitor --------
+  Serial.begin(9600);
+  Serial.println("System Initializing...");
+
   lcd.setCursor(0, 0);
   lcd.print("EECS CLUB");
+  Serial.println("LCD: EECS CLUB");
+
   delay(1800);
   lcd.clear();
 }
@@ -52,9 +58,16 @@ void loop() {
     lcd.clear();
     lcd.setCursor(0, 0);
     lcd.print("Bhaag, Hatt");
+
+    Serial.print("IR DETECTED → Bhaag, Hatt ; BUZZER ON ,");
+
     digitalWrite(BUZZER, HIGH);
     delay(1000);
     digitalWrite(BUZZER, LOW);
+
+    Serial.println("Buzzer OFF");
+    Serial.println("------------------------------------------------");
+
     return;
   }
 
@@ -65,6 +78,15 @@ void loop() {
 
   int moisturePercent = map(moistureRaw, 4095, 0, 0, 100);
   moisturePercent = constrain(moisturePercent, 0, 100);
+
+  // ---- SERIAL OUTPUT ----
+  Serial.print("Temperature: ");
+  Serial.print(temperature);
+  Serial.print(" °C | Humidity: ");
+  Serial.print(humidity);
+  Serial.print(" % | Soil Moisture: ");
+  Serial.print(moisturePercent);
+  Serial.println(" %");
 
   // ---- LCD DISPLAY ----
   lcd.clear();
@@ -85,9 +107,15 @@ void loop() {
     lcd.clear();
     lcd.setCursor(0, 0);
     lcd.print("Tsunami AA Gayi");
+
+    Serial.println("ALERT: Soil moisture too high!");
+    Serial.println("Tsunami AA Gayi");
+    Serial.println("------------------------");
+
     delay(1000);
     return;
   }
 
+  Serial.println("------------------------");
   delay(2000);
 }

@@ -73,9 +73,24 @@ And triggers alerts using IR sensor and buzzer.
 
 ## 2. Software Setup (Arduino IDE)
 
-### Step 1: Download Arduino IDE
+### Step 1.1: Download Arduino IDE
 
 Download from: [https://www.arduino.cc/en/software](https://www.arduino.cc/en/software)
+
+### Step 1.2: Install USB-to-Serial Drivers [LINK](https://drive.google.com/drive/folders/1_5TbIT9GiW2gZshUFSvet_-q4AdfdNoO?usp=drive_link)
+--------------------------------------------------
+
+Install BOTH drivers (safe even if only one is used).
+
+1) CH340 / CH340C Driver
+   - Manufacturer: WCH
+   - Install the driver for your operating system
+   - Restart computer if prompted
+
+2) CP2102 Driver
+   - Manufacturer: Silicon Labs
+   - Install the CP210x USB-to-UART driver
+   - Restart computer if prompted
 
 ### Step 2: Install Arduino IDE
 
@@ -100,9 +115,9 @@ Follow the installation steps for your operating system.
 
 ### Step 5: Install Required Libraries
 
-* LiquidCrystal_I2C
-* DHT Sensor Library
-* Adafruit Unified Sensor
+* LiquidCrystal_I2C (by Martin Kubovčík, Frank de..)
+* DHT Sensor Library (by adafruit)
+* Adafruit Unified Sensor (by adafruit)
 
 Install from: Sketch → Include Library → Manage Libraries
 
@@ -112,7 +127,7 @@ Install from: Sketch → Include Library → Manage Libraries
 
 ### Main Components
 
-* ESP32 / NodeMCU
+* ESP32 / NodeMCU(esp8266)
 * I2C LCD (16x2)
 * DHT11
 * IR Sensor
@@ -227,7 +242,7 @@ Display temperature and humidity on LCD.
 | DHT11 Pin | ESP32 Pin |
 | --------- | --------- |
 | VCC       | 3.3V      |
-| DATA      | GPIO 4    |
+| DATA      | GPIO 5    |
 | GND       | GND       |
 
 ### Steps
@@ -262,8 +277,8 @@ Detect nearby objects and trigger alert.
 
 | Component | ESP32 Pin |
 | --------- | --------- |
-| IR OUT    | GPIO 15   |
-| Buzzer    | GPIO 18   |
+| IR OUT    | GPIO 4    |
+| Buzzer    | GPIO 23   |
 
 ### Steps
 
@@ -274,7 +289,6 @@ Detect nearby objects and trigger alert.
 ### Expected Output
 
 * Message displayed on detection
-* Buzzer activates
 
 ---
 
@@ -294,7 +308,7 @@ Measure soil moisture percentage.
 | Sensor Pin | ESP32 Pin |
 | ---------- | --------- |
 | VCC        | 3.3V      |
-| AO         | GPIO 34   |
+| AO         | GPIO 13   |
 | GND        | GND       |
 
 ### Steps
@@ -306,6 +320,7 @@ Measure soil moisture percentage.
 ### Expected Output
 
 * Moisture percentage on LCD
+* Buzzer activates (when hand is placed on IR sensor)
 
 ### Calibration
 
